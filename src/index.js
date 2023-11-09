@@ -22,6 +22,16 @@ function renderMovieDetails(movie) {
     movDesc.textContent = movie.description;
     movShowtime.textContent = movie.showtime;
     remainTix.textContent = movie.capacity - movie.tickets_sold;
+    // Step 3 - buy tix until sold out - click event
+    buyTix.addEventListener('click', () => {
+        let soldTix = parseInt(remainTix.textContent)
+        if (soldTix > 0){
+            soldTix--;
+            remainTix.textContent = soldTix;
+        } else {
+            alert("SOLD OUT")
+        }
+    })
 }
 // Step 2 - GET all movie titles on the L side of screen
 fetch(url)
