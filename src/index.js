@@ -55,7 +55,7 @@ function renderMovieTitles(movie) {
     })
 }
 
-// //  Bonus 1 - alternative
+// //  Bonus 1 - alternative breaks the code
 // fetch(url)
 // .then(jsonResp)
 // .then(films => {
