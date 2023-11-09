@@ -29,7 +29,9 @@ function renderMovieDetails(movie) {
             soldTix--;
             remainTix.textContent = soldTix;
         } else {
-            alert("SOLD OUT")
+            alert("SOLD OUT");
+            // Bonus 2 - btn says SoldOut
+            buyTix.textContent = 'Sold Out'
         }
     })
 }
@@ -41,11 +43,30 @@ fetch(url)
     filmList.innerHTML = '';
     movies.forEach(movie => renderMovieTitles(movie));
 })
-
 function renderMovieTitles(movie) {
     const movList = document.createElement('li');
     movList.textContent = movie.title;
     // optional added .film from css
-    movList.classList.add('film')
-    filmList.append(movList)
+    movList.classList.add('film');
+    filmList.append(movList);
+    // Bonus 1 - display any movie with click
+    movList.addEventListener('click', () => {
+        renderMovieDetails(movie)
+    })
 }
+
+// //  Bonus 1 - alternative
+// fetch(url)
+// .then(jsonResp)
+// .then(films => {
+//     renderMovieDetails(films[0])
+//     filmList.innerHTML = ""
+//     films.forEach(film => {
+//         let list = document.createElement('li');
+//         list.textContent = film.title;
+//         filmList.append(list);
+//         list.addEventListener('click', () => {
+//             renderMovieDetails(film)
+//         })
+//     })
+// })
